@@ -1,0 +1,19 @@
+[Unit]
+Description=Apiary Eyes camera __CAM__ MJPEG stream (port __PORT__)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=__USER__
+Environment=CAM_NUM=__CAM__
+Environment=PORT=__PORT__
+Environment=WIDTH=1280
+Environment=HEIGHT=960
+Environment=FPS=15
+Environment=TRAIN_ROOT=/opt/beehive/training
+ExecStart=/usr/bin/python3 /opt/beehive/cam_server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Apiary Eyes control center (port 8080)
+After=hive-cam0.service hive-cam1.service
+
+[Service]
+User=__USER__
+Environment=PORT=8080
+Environment=CAM0_PORT=8090
+Environment=CAM1_PORT=8091
+Environment=CAM0_HIVE=__HIVE0__
+Environment=CAM1_HIVE=__HIVE1__
+Environment=TRAIN_ROOT=/opt/beehive/training
+ExecStart=/usr/bin/python3 /opt/beehive/dashboard.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

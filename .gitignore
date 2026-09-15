@@ -1,0 +1,16 @@
+# secrets and local config
+*.env
+!*.env.example
+# models, datasets, runs
+*.pt
+dataset/
+runs/
+training/
+own-hives/
+# python
+__pycache__/
+*.pyc
+venv/
+# editors / os
+.DS_Store
+*.swp

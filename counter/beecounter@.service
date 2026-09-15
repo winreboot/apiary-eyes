@@ -1,0 +1,15 @@
+[Unit]
+Description=Apiary Eyes bee counter %i
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=__USER__
+WorkingDirectory=/opt/beecounter
+EnvironmentFile=/opt/beecounter/%i.env
+ExecStart=/opt/beecounter/venv/bin/python3 /opt/beecounter/bee_counter.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
